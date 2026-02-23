@@ -79,7 +79,12 @@ const UserProvider = ({children} : {children : ReactNode}) =>{
             try{ 
                 const res = await axios.get(meApiUrl ?? "" , {withCredentials : true})
 
-                setUserData(res.data)
+                const safeData = {
+                    ...res.data,
+                    canes: Array.isArray(res.data.canes) ? res.data.canes : []
+                }
+
+                setUserData(safeData)
             }
             catch{
                 warnNoti("Internal website error" , "Load data failed.")
