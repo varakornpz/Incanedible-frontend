@@ -77,7 +77,7 @@ export default ()=>{
     return(
         <div className="flex items-center border-2 rounded-md border-gray-400 w-fit">
             <input ref={inputRef} id="1" className="h-8 w-40 bg-[#444444] focus:outline-none rounded-md px-1" type="text" placeholder="cane id" />
-            <button onClick={handleFormSubmit} disabled >
+            <button onClick={handleFormSubmit} >
                 {isAdding || !userData?.name ?
                     <AiOutlineLoading className="text-xl font-bold mx-2 animate-spin"/>
                 :
