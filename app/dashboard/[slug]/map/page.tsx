@@ -6,6 +6,9 @@ import { useParams } from 'next/navigation'
 import { useEffect , useState } from 'react'
 import MyMap from './MyMap'
 
+import dynamic from 'next/dynamic';
+import { useMemo } from 'react';
+
 
 export default ()=>{
     const params = useParams()
@@ -58,11 +61,19 @@ export default ()=>{
 
     },[cane_id, socketLocationApi])
 
+    const Map = useMemo(() => dynamic(
+    () => import("./MyMap"), 
+    { 
+      loading: () => <p>A map is loading...</p>,
+      ssr: false
+    }
+  ), []);
+
     return (
         <div className='w-full h-fit'>
             {location.lat && location.lng ?
                 <div className='w-full h-fit'>
-                    <MyMap posix={[location.lat , location.lng]}/>
+                    <Map posix={[location.lat , location.lng]}/>
                 </div>
             :
             <div>
