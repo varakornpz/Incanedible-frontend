@@ -6,16 +6,15 @@ import { useParams } from 'next/navigation'
 import { useEffect , useState } from 'react'
 
 import dynamic from 'next/dynamic';
-import { useMemo } from 'react';
 
 
-    const Map = useMemo(() => dynamic(
-    () => import("./MyMap"), 
-    { 
-      loading: () => <p>A map is loading...</p>,
-      ssr: false
-    }
-  ), []);
+const Map = dynamic(
+  () => import("./MyMap"), 
+  { 
+    loading: () => <p>A map is loading...</p>,
+    ssr: false
+  }
+);
 
 export default ()=>{
     const params = useParams()
