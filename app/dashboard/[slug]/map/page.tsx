@@ -59,9 +59,9 @@ export default ()=>{
     },[cane_id, socketLocationApi])
 
     return (
-        <div>
+        <div className='w-full h-fit'>
             {location.lat && location.lng ?
-                <div>
+                <div className='w-full h-fit'>
                     <MyMap posix={[location.lat , location.lng]}/>
                 </div>
             :

@@ -25,7 +25,7 @@ export default ({zoom = defaults.zoom , posix} : MapProps)=>{
       center={posix}
       zoom={zoom}
       scrollWheelZoom={false}
-      style={{ height: "100%", width: "100%" }}
+      className="w-full h-full"
     >
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
