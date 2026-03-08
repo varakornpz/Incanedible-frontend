@@ -46,7 +46,8 @@ export default function Page() {
 
                 console.log(sl)
             } catch (error) {
-                warnNoti("Server send something that not implement" , event.data)
+                console.log("Server send something that not implement")
+                // warnNoti("Server send something that not implement" , event.data)
             }
         };
 
@@ -56,7 +57,7 @@ export default function Page() {
         };
 
         return () => {
-            warnNoti("Disconnect from websocket" , `disconnect from ${wsUrl}`)
+            // warnNoti("Disconnect from websocket" , `disconnect from ${wsUrl}`)
             socket.close();
         };
 

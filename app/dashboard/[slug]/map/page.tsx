@@ -51,7 +51,8 @@ export default ()=>{
                     sat : data.sat
                 });
             } catch (error) {
-                warnNoti("Server send something that not implement" , event.data)
+                console.log("Server send something that not implement")
+                // warnNoti("Server send something that not implement" , event.data)
             }
         };
 
@@ -61,7 +62,7 @@ export default ()=>{
         };
 
         return () => {
-            warnNoti("Disconnect from websocket" , `disconnect from ${wsUrl}`)
+            // warnNoti("Disconnect from websocket" , `disconnect from ${wsUrl}`)
             socket.close();
         };
 
