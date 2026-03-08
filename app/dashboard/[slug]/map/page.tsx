@@ -12,9 +12,10 @@ export default ()=>{
 
     const socketLocationApi = process.env.NEXT_PUBLIC_API_LOCATION_SOCKET
 
-    const [location, setLocation] = useState<{lat: number | null, long: number | null}>({ 
+    const [location, setLocation] = useState<{lat: number | null, lng: number | null , sat : number | null}>({ 
             lat: null, 
-            long: null 
+            lng: null ,
+            sat : null
     })
 
     useEffect(()=>{
@@ -36,7 +37,8 @@ export default ()=>{
                 
                 setLocation({
                     lat: data.lat,
-                    long: data.long
+                    lng: data.lng ,
+                    sat : data.sat
                 });
             } catch (error) {
                 warnNoti("Server send something that not implement" , event.data)
@@ -59,7 +61,8 @@ export default ()=>{
         <div>
             <p>map of {cane_id}</p>
             <p>lat : {location.lat}</p>
-            <p>long : {location.long}</p>
+            <p>lng : {location.lng}</p>
+            <p>sat : {location.sat}</p>
         </div>
     )
 }
