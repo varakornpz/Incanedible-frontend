@@ -70,9 +70,9 @@ export default ()=>{
   ), []);
 
     return (
-        <div className='w-full h-fit'>
+        <div className='w-full h-full'>
             {location.lat && location.lng ?
-                <div className='w-full h-fit'>
+                <div className='w-full h-full'>
                     <Map posix={[location.lat , location.lng]}/>
                 </div>
             :
